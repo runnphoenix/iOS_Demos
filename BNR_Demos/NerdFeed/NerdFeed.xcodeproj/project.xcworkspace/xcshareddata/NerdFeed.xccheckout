@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>425EBC25-ADB4-4FC3-BC77-3778C0259614</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NerdFeed</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>581D74734012E6DEDEDD2DECBC835C4ADF68C8C2</key>
+		<string>https://github.com/runnphoenix/iOS_Demos.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BNR_Demos/NerdFeed/NerdFeed.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>581D74734012E6DEDEDD2DECBC835C4ADF68C8C2</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/runnphoenix/iOS_Demos.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>581D74734012E6DEDEDD2DECBC835C4ADF68C8C2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>581D74734012E6DEDEDD2DECBC835C4ADF68C8C2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DemosForNewWork</string>
+		</dict>
+	</array>
+</dict>
+</plist>
