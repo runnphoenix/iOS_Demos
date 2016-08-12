@@ -27,6 +27,8 @@
     
     _locationManager = [[LocationManager alloc]init];
     _locationManager.delegate = self;
+    // 没有这句代码，不会在后台运行
+    _locationManager.allowsBackgroundLocationUpdates = YES;
     [_locationManager startUpdatingLocation];
     
     _annotations = [NSMutableArray array];
@@ -37,7 +39,6 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSLog(@"XXXXXXX");
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     annotation.coordinate = [locations lastObject].coordinate;
@@ -51,9 +52,6 @@
     
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
         [self.mapView showAnnotations:_annotations animated:YES];
-        NSLog(@"Active: %@",[locations lastObject]);
-    }else {
-        NSLog(@"Inactive: %@",[locations lastObject]);
     }
 }
 
