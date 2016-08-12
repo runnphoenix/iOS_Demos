@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63AAC481D5DBA0000D4720C /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D63AAC471D5DBA0000D4720C /* LocationManager.m */; };
 		D650E1D71D519BE900C374B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D650E1D61D519BE900C374B9 /* main.m */; };
 		D650E1DA1D519BE900C374B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D650E1D91D519BE900C374B9 /* AppDelegate.m */; };
 		D650E1DD1D519BE900C374B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D650E1DC1D519BE900C374B9 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D63AAC461D5DBA0000D4720C /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		D63AAC471D5DBA0000D4720C /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		D650E1D21D519BE900C374B9 /* 9Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D650E1D61D519BE900C374B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D650E1D81D519BE900C374B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,13 +111,15 @@
 				D650E1D91D519BE900C374B9 /* AppDelegate.m */,
 				D650E1DB1D519BE900C374B9 /* ViewController.h */,
 				D650E1DC1D519BE900C374B9 /* ViewController.m */,
+				D63AAC461D5DBA0000D4720C /* LocationManager.h */,
+				D63AAC471D5DBA0000D4720C /* LocationManager.m */,
+				D650E2081D519C1E00C374B9 /* SSID.h */,
+				D650E2091D519C1E00C374B9 /* SSID.m */,
 				D650E1DE1D519BE900C374B9 /* Main.storyboard */,
 				D650E1E11D519BE900C374B9 /* Assets.xcassets */,
 				D650E1E31D519BE900C374B9 /* LaunchScreen.storyboard */,
 				D650E1E61D519BE900C374B9 /* Info.plist */,
 				D650E1D51D519BE900C374B9 /* Supporting Files */,
-				D650E2081D519C1E00C374B9 /* SSID.h */,
-				D650E2091D519C1E00C374B9 /* SSID.m */,
 			);
 			path = 9Alert;
 			sourceTree = "<group>";
@@ -215,6 +220,11 @@
 						DevelopmentTeam = QQG5ECY7MS;
 						DevelopmentTeamName = "Hanying Zhang (Personal Team)";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					D650E1EA1D519BEA00C374B9 = {
 						CreatedOnToolsVersion = 8.0;
@@ -285,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D650E20A1D519C1E00C374B9 /* SSID.m in Sources */,
+				D63AAC481D5DBA0000D4720C /* LocationManager.m in Sources */,
 				D650E1DD1D519BE900C374B9 /* ViewController.m in Sources */,
 				D650E1DA1D519BE900C374B9 /* AppDelegate.m in Sources */,
 				D650E1D71D519BE900C374B9 /* main.m in Sources */,
@@ -513,6 +524,7 @@
 				D650E2011D519BEA00C374B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D650E2021D519BEA00C374B9 /* Build configuration list for PBXNativeTarget "9AlertTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +533,7 @@
 				D650E2041D519BEA00C374B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D650E2051D519BEA00C374B9 /* Build configuration list for PBXNativeTarget "9AlertUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +542,7 @@
 				D650E2071D519BEA00C374B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
