@@ -42,7 +42,6 @@
         
         if (dictRef) {
             NSDictionary *networkInfo = (__bridge NSDictionary *)dictRef;
-            NSLog(@"network info -> %@", networkInfo);
             wifiName = [networkInfo objectForKey:(__bridge NSString *)kCNNetworkInfoKeySSID];
             
             CFRelease(dictRef);

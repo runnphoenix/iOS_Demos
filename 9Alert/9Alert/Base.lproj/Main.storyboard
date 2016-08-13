@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,56 +19,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前WIFI：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-Zf-9gU">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHY-uP-5RO" userLabel="WiFi">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前WIFI：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-Zf-9gU">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ctL-gR-nDh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHb-Ne-cf3" userLabel="CurrentSSID">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参考WIFI：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMU-VG-Ihn">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-e9-dFH" userLabel="WorkSSID">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-eP-2GW">
+                                        <state key="normal" title="设置当前WIFI为参考WIFI"/>
+                                        <connections>
+                                            <action selector="setCurrentWifiAsReference:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yQe-uh-RJN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="QMU-VG-Ihn" firstAttribute="height" secondItem="22Y-Zf-9gU" secondAttribute="height" id="0NT-W4-sXg"/>
+                                    <constraint firstItem="yHb-Ne-cf3" firstAttribute="leading" secondItem="22Y-Zf-9gU" secondAttribute="trailing" id="6MU-ZA-U37"/>
+                                    <constraint firstItem="yHb-Ne-cf3" firstAttribute="height" secondItem="22Y-Zf-9gU" secondAttribute="height" id="F2t-oN-5gF"/>
+                                    <constraint firstItem="Qqv-e9-dFH" firstAttribute="top" secondItem="QMU-VG-Ihn" secondAttribute="top" id="GHI-OI-fPF"/>
+                                    <constraint firstItem="QMU-VG-Ihn" firstAttribute="width" secondItem="22Y-Zf-9gU" secondAttribute="width" id="Gm0-M7-LBR"/>
+                                    <constraint firstItem="yHb-Ne-cf3" firstAttribute="top" secondItem="22Y-Zf-9gU" secondAttribute="top" id="Nhp-o7-bZ3"/>
+                                    <constraint firstItem="22Y-Zf-9gU" firstAttribute="leading" secondItem="nHY-uP-5RO" secondAttribute="leading" id="R6Y-Sr-Cxe"/>
+                                    <constraint firstItem="yHb-Ne-cf3" firstAttribute="width" secondItem="nHY-uP-5RO" secondAttribute="width" multiplier="0.7" id="Wws-9d-NYQ"/>
+                                    <constraint firstItem="22Y-Zf-9gU" firstAttribute="width" secondItem="nHY-uP-5RO" secondAttribute="width" multiplier="0.3" id="avt-Hb-ShI"/>
+                                    <constraint firstItem="Qqv-e9-dFH" firstAttribute="width" secondItem="yHb-Ne-cf3" secondAttribute="width" id="ge1-9I-a1k"/>
+                                    <constraint firstAttribute="height" constant="72" id="k4v-9j-bg4"/>
+                                    <constraint firstItem="KnC-eP-2GW" firstAttribute="width" secondItem="nHY-uP-5RO" secondAttribute="width" multiplier="0.8" id="kTX-uG-q3H"/>
+                                    <constraint firstItem="Qqv-e9-dFH" firstAttribute="height" secondItem="yHb-Ne-cf3" secondAttribute="height" id="kv8-PM-pvE"/>
+                                    <constraint firstItem="Qqv-e9-dFH" firstAttribute="leading" secondItem="yHb-Ne-cf3" secondAttribute="leading" id="kys-1G-Buy"/>
+                                    <constraint firstItem="KnC-eP-2GW" firstAttribute="centerX" secondItem="nHY-uP-5RO" secondAttribute="centerX" id="poj-zt-QiH"/>
+                                    <constraint firstItem="22Y-Zf-9gU" firstAttribute="top" secondItem="nHY-uP-5RO" secondAttribute="top" id="tj5-gw-Pc7"/>
+                                    <constraint firstItem="QMU-VG-Ihn" firstAttribute="top" secondItem="22Y-Zf-9gU" secondAttribute="bottom" id="uZL-pb-BZx"/>
+                                    <constraint firstItem="Qqv-e9-dFH" firstAttribute="bottom" secondItem="KnC-eP-2GW" secondAttribute="top" id="w70-Q4-kbT"/>
+                                    <constraint firstItem="QMU-VG-Ihn" firstAttribute="leading" secondItem="22Y-Zf-9gU" secondAttribute="leading" id="yFQ-Bd-IjP"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设定每日工作时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eju-U4-QD7" userLabel="时间说明">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHb-Ne-cf3" userLabel="CurrentSSID">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参考WIFI：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMU-VG-Ihn">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-e9-dFH" userLabel="WorkSSID">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-eP-2GW">
-                                <state key="normal" title="设置当前WIFI为参考WIFI"/>
-                                <connections>
-                                    <action selector="setCurrentWifiAsReference:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yQe-uh-RJN"/>
-                                </connections>
-                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-1U-5PH">
+                                <date key="date" timeIntervalSinceReferenceDate="492764155.581343">
+                                    <!--2016-08-13 06:55:55 +0000-->
+                                </date>
+                            </datePicker>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PEh-wr-8Qa"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="width" secondItem="yHb-Ne-cf3" secondAttribute="width" id="3nh-z1-Rcp"/>
-                            <constraint firstItem="KnC-eP-2GW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Lu-g4-MbW"/>
-                            <constraint firstItem="KnC-eP-2GW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="5bd-4D-xbJ"/>
-                            <constraint firstItem="22Y-Zf-9gU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="7Wd-tK-lpI"/>
+                            <constraint firstItem="nHY-uP-5RO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2T7-MR-D0D"/>
+                            <constraint firstItem="eju-U4-QD7" firstAttribute="bottom" secondItem="YxR-1U-5PH" secondAttribute="top" constant="8" symbolic="YES" id="601-QE-R4G"/>
+                            <constraint firstItem="PEh-wr-8Qa" firstAttribute="top" secondItem="YxR-1U-5PH" secondAttribute="bottom" constant="8" symbolic="YES" id="7aI-TU-2Xt"/>
+                            <constraint firstItem="eju-U4-QD7" firstAttribute="top" secondItem="nHY-uP-5RO" secondAttribute="bottom" constant="8" symbolic="YES" id="8Lg-d4-Jm6"/>
+                            <constraint firstItem="nHY-uP-5RO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8gx-R8-g9W"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PEh-wr-8Qa" secondAttribute="bottom" id="9A2-ZZ-NUJ"/>
-                            <constraint firstItem="yHb-Ne-cf3" firstAttribute="top" secondItem="22Y-Zf-9gU" secondAttribute="top" id="Esy-nj-GW6"/>
-                            <constraint firstItem="PEh-wr-8Qa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="KES-1f-gnH"/>
-                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="leading" secondItem="yHb-Ne-cf3" secondAttribute="leading" id="NKg-7W-EKo"/>
                             <constraint firstItem="PEh-wr-8Qa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Qzn-fT-ieL"/>
-                            <constraint firstItem="yHb-Ne-cf3" firstAttribute="leading" secondItem="22Y-Zf-9gU" secondAttribute="trailing" id="VWF-hZ-jwI"/>
-                            <constraint firstItem="QMU-VG-Ihn" firstAttribute="top" secondItem="22Y-Zf-9gU" secondAttribute="bottom" constant="8" id="W6t-HC-lfb"/>
                             <constraint firstItem="PEh-wr-8Qa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YMX-4B-jip"/>
-                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="top" secondItem="QMU-VG-Ihn" secondAttribute="top" id="ZYk-oX-M7F"/>
-                            <constraint firstItem="QMU-VG-Ihn" firstAttribute="width" secondItem="22Y-Zf-9gU" secondAttribute="width" id="dPU-fy-UnO"/>
-                            <constraint firstItem="yHb-Ne-cf3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="ea8-43-bgi"/>
-                            <constraint firstItem="KnC-eP-2GW" firstAttribute="top" secondItem="Qqv-e9-dFH" secondAttribute="bottom" constant="8" symbolic="YES" id="eab-bT-VUf"/>
-                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="height" secondItem="yHb-Ne-cf3" secondAttribute="height" id="f2h-AF-yIB"/>
-                            <constraint firstItem="22Y-Zf-9gU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="kO1-rB-O69"/>
-                            <constraint firstItem="22Y-Zf-9gU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nMn-67-gh0"/>
-                            <constraint firstItem="QMU-VG-Ihn" firstAttribute="leading" secondItem="22Y-Zf-9gU" secondAttribute="leading" id="s5E-14-XVj"/>
+                            <constraint firstItem="YxR-1U-5PH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="coO-hI-xzA"/>
+                            <constraint firstItem="YxR-1U-5PH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h0a-tR-23v"/>
+                            <constraint firstItem="eju-U4-QD7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="r5z-eD-wL8"/>
+                            <constraint firstItem="eju-U4-QD7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r7Z-Xr-ke0"/>
+                            <constraint firstItem="nHY-uP-5RO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="vrg-eK-Tny"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q7b-mP-Kxp"/>
