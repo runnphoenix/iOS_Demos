@@ -21,7 +21,7 @@
     return ssid;
 }
 
-- (NSString *)SSID {
+- (NSString *)ssid {
     return [[self class] getWifiName];
 }
 

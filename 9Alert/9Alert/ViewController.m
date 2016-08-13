@@ -12,39 +12,58 @@
 #import <MapKit/MapKit.h>
 
 @interface ViewController () <CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *currentSSIDLabel;
+@property (weak, nonatomic) IBOutlet UILabel *referenceSSIDLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
 
 @implementation ViewController {
     LocationManager *_locationManager;
     NSMutableArray *_annotations;
+    unsigned _maxWorkHours;
+    
+    NSDate *_dailyStartDate;
+    NSDate *_dailyEndDate;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@",[SSID sharedSSID].SSID);
-    
     _locationManager = [[LocationManager alloc]init];
     _locationManager.delegate = self;
-    // 没有这句代码，不会在后台运行
-    _locationManager.allowsBackgroundLocationUpdates = YES;
+    _locationManager.allowsBackgroundLocationUpdates = YES; // 没有这句代码，不会在后台运行
     [_locationManager startUpdatingLocation];
     
     _annotations = [NSMutableArray array];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self refreshWiFiLabels];
 }
 
+// 刷新WiFi名称显示
+- (void)refreshWiFiLabels {
+    self.currentSSIDLabel.text = [SSID sharedSSID].ssid;
+    NSString *referenceSSID = [[NSUserDefaults standardUserDefaults] objectForKey:@"referenceSSID"];
+    if (!referenceSSID) {
+        referenceSSID = @" ";
+    }
+    self.referenceSSIDLabel.text = referenceSSID;
+}
+
+// 获取到地点信息之后到代理方法
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    
+    // 刷新WiFi名称显示
+    [self refreshWiFiLabels];
+
+    // 记录地点信息
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     annotation.coordinate = [locations lastObject].coordinate;
     [_annotations addObject:annotation];
     
-    if (_annotations.count > 100) {
+    if (_annotations.count > 30) {
         MKPointAnnotation *toRemoveAnnotation = [_annotations firstObject];
         [_annotations removeObjectAtIndex:0];
         [self.mapView removeAnnotation:toRemoveAnnotation];
@@ -52,6 +71,23 @@
     
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
         [self.mapView showAnnotations:_annotations animated:YES];
+    }
+    // 处理时间
+    
+}
+
+// 将当前WiFi设置为参考WiFi
+- (IBAction)setCurrentWifiAsReference:(id)sender {
+    // 如果已取得当前WiFi名称
+    if (self.currentSSIDLabel.text) {
+        // 设置界面显示
+        self.referenceSSIDLabel.text = self.currentSSIDLabel.text;
+        // 如果是将新的WiFi作为参考，那么改写已储存的名称信息
+        if (![self.currentSSIDLabel.text isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"referenceSSID"]]) {
+            [[NSUserDefaults standardUserDefaults] setObject:self.currentSSIDLabel.text forKey:@"referenceSSID"];
+        }
+    }else{
+        //TODO: 给出未连接WiFi到警告
     }
 }
 

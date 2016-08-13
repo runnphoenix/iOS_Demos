@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GcO-Un-yrx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,22 +20,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前WIFI：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-Zf-9gU">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHb-Ne-cf3" userLabel="CurrentSSID">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参考WIFI：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMU-VG-Ihn">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-e9-dFH" userLabel="WorkSSID">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-eP-2GW">
+                                <state key="normal" title="设置当前WIFI为参考WIFI"/>
+                                <connections>
+                                    <action selector="setCurrentWifiAsReference:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yQe-uh-RJN"/>
+                                </connections>
+                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PEh-wr-8Qa"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PEh-wr-8Qa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Fk-g4-q6l"/>
-                            <constraint firstItem="PEh-wr-8Qa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="KES-1f-gnH"/>
+                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="width" secondItem="yHb-Ne-cf3" secondAttribute="width" id="3nh-z1-Rcp"/>
+                            <constraint firstItem="KnC-eP-2GW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Lu-g4-MbW"/>
+                            <constraint firstItem="KnC-eP-2GW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="5bd-4D-xbJ"/>
+                            <constraint firstItem="22Y-Zf-9gU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="7Wd-tK-lpI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PEh-wr-8Qa" secondAttribute="bottom" id="9A2-ZZ-NUJ"/>
+                            <constraint firstItem="yHb-Ne-cf3" firstAttribute="top" secondItem="22Y-Zf-9gU" secondAttribute="top" id="Esy-nj-GW6"/>
+                            <constraint firstItem="PEh-wr-8Qa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="KES-1f-gnH"/>
+                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="leading" secondItem="yHb-Ne-cf3" secondAttribute="leading" id="NKg-7W-EKo"/>
                             <constraint firstItem="PEh-wr-8Qa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Qzn-fT-ieL"/>
+                            <constraint firstItem="yHb-Ne-cf3" firstAttribute="leading" secondItem="22Y-Zf-9gU" secondAttribute="trailing" id="VWF-hZ-jwI"/>
+                            <constraint firstItem="QMU-VG-Ihn" firstAttribute="top" secondItem="22Y-Zf-9gU" secondAttribute="bottom" constant="8" id="W6t-HC-lfb"/>
                             <constraint firstItem="PEh-wr-8Qa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YMX-4B-jip"/>
+                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="top" secondItem="QMU-VG-Ihn" secondAttribute="top" id="ZYk-oX-M7F"/>
+                            <constraint firstItem="QMU-VG-Ihn" firstAttribute="width" secondItem="22Y-Zf-9gU" secondAttribute="width" id="dPU-fy-UnO"/>
+                            <constraint firstItem="yHb-Ne-cf3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="ea8-43-bgi"/>
+                            <constraint firstItem="KnC-eP-2GW" firstAttribute="top" secondItem="Qqv-e9-dFH" secondAttribute="bottom" constant="8" symbolic="YES" id="eab-bT-VUf"/>
+                            <constraint firstItem="Qqv-e9-dFH" firstAttribute="height" secondItem="yHb-Ne-cf3" secondAttribute="height" id="f2h-AF-yIB"/>
+                            <constraint firstItem="22Y-Zf-9gU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="kO1-rB-O69"/>
+                            <constraint firstItem="22Y-Zf-9gU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nMn-67-gh0"/>
+                            <constraint firstItem="QMU-VG-Ihn" firstAttribute="leading" secondItem="22Y-Zf-9gU" secondAttribute="leading" id="s5E-14-XVj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="q7b-mP-Kxp"/>
                     <connections>
+                        <outlet property="currentSSIDLabel" destination="yHb-Ne-cf3" id="1Ob-iX-LVE"/>
                         <outlet property="mapView" destination="PEh-wr-8Qa" id="xWH-9u-kfU"/>
+                        <outlet property="referenceSSIDLabel" destination="Qqv-e9-dFH" id="VGs-66-2g6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1055.2" y="123.68815592203899"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aZJ-bX-kaf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GcO-Un-yrx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QeK-pQ-IAk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZbB-AH-03S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVn-NA-Ezp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>

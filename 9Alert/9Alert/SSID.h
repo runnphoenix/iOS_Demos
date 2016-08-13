@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface SSID : NSObject
-@property (nonatomic, copy, readonly) NSString *SSID;
+@property (nonatomic, copy, readonly) NSString *ssid;
 + (instancetype)sharedSSID;
 @end

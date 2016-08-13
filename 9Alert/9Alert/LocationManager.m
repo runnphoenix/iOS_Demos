@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.desiredAccuracy = kCLLocationAccuracyBest;
+        self.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         [self requestAlwaysAuthorization];
     }
     return self;
