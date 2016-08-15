@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D650E1D11D519BE900C374B9"
+               BlueprintIdentifier = "D6BE3FC81D6152AD003AA401"
                BuildableName = "9Alert.app"
                BlueprintName = "9Alert"
                ReferencedContainer = "container:9Alert.xcodeproj">
@@ -32,19 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D650E1EA1D519BEA00C374B9"
+               BlueprintIdentifier = "D6BE3FE11D6152AD003AA401"
                BuildableName = "9AlertTests.xctest"
                BlueprintName = "9AlertTests"
-               ReferencedContainer = "container:9Alert.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D650E1F51D519BEA00C374B9"
-               BuildableName = "9AlertUITests.xctest"
-               BlueprintName = "9AlertUITests"
                ReferencedContainer = "container:9Alert.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -52,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D650E1D11D519BE900C374B9"
+            BlueprintIdentifier = "D6BE3FC81D6152AD003AA401"
             BuildableName = "9Alert.app"
             BlueprintName = "9Alert"
             ReferencedContainer = "container:9Alert.xcodeproj">
@@ -75,7 +65,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D650E1D11D519BE900C374B9"
+            BlueprintIdentifier = "D6BE3FC81D6152AD003AA401"
             BuildableName = "9Alert.app"
             BlueprintName = "9Alert"
             ReferencedContainer = "container:9Alert.xcodeproj">
@@ -94,7 +84,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D650E1D11D519BE900C374B9"
+            BlueprintIdentifier = "D6BE3FC81D6152AD003AA401"
             BuildableName = "9Alert.app"
             BlueprintName = "9Alert"
             ReferencedContainer = "container:9Alert.xcodeproj">

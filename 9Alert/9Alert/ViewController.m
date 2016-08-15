@@ -2,14 +2,13 @@
 //  ViewController.m
 //  9Alert
 //
-//  Created by workMac on 16/8/3.
+//  Created by workMac on 16/8/15.
 //  Copyright © 2016年 self. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "SSID.h"
 #import "LocationManager.h"
-#import <UserNotifications/UserNotifications.h>
 #import <MapKit/MapKit.h>
 
 @interface ViewController () <CLLocationManagerDelegate>
@@ -40,10 +39,6 @@
     _annotations = [NSMutableArray array];
     
     _duringWork = NO;
-    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionNone
-                                                                        completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        
-                                                                        }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,7 +61,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     // 刷新WiFi名称显示
     [self refreshWiFiLabels];
-
+    
     // 记录地点信息
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     annotation.coordinate = [locations lastObject].coordinate;
@@ -85,18 +80,14 @@
     // 处理时间
     BOOL underWorkWiFi = [[SSID sharedSSID].ssid isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"referenceSSID"]];
     if (underWorkWiFi && !_duringWork) { //处在工作地点WiFi下且没有开始计时，则开始计时
-        NSLog(@"XXXXXXXXX");
         _duringWork = YES;
         
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:20 repeats:NO];
-        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];
-        content.title = @"下班了，下班了，现在可以下班了！！";
-        content.body = @"美好的夜生活终于开始了！！！！";
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"" content:content trigger:trigger];
-        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
-                                                              withCompletionHandler:^(NSError * _Nullable error) {
-                                                                  
-                                                              }];
+        UILocalNotification *notification = [[UILocalNotification alloc]init];
+        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.alertTitle = @"下班了，下班了";
+        notification.alertBody = @"美好的夜生活开始了";
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }
 
@@ -111,8 +102,9 @@
             [[NSUserDefaults standardUserDefaults] setObject:self.currentSSIDLabel.text forKey:@"referenceSSID"];
         }
     }else{
-        //TODO: 给出未连接WiFi到警告
+        //TODO: 给出未连接WiFi的警告
     }
 }
 
 @end
+

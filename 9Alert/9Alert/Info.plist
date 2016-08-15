@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>用这玩意儿才能保证一直在后台运行</string>
+	<string>用这玩意儿保证一直在后台运行</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
