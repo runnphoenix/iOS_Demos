@@ -15,6 +15,7 @@
 		D6BFEA7E1D644D35007EC476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6BFEA7C1D644D35007EC476 /* LaunchScreen.storyboard */; };
 		D6BFEA891D644D35007EC476 /* RuntimeDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFEA881D644D35007EC476 /* RuntimeDemoTests.m */; };
 		D6BFEA951D644E2C007EC476 /* NSString+AssociateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFEA941D644E2C007EC476 /* NSString+AssociateObject.m */; };
+		D6BFEA9E1D645B91007EC476 /* SwizzlingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFEA9D1D645B91007EC476 /* SwizzlingObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		D6BFEA8A1D644D35007EC476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6BFEA931D644E2C007EC476 /* NSString+AssociateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AssociateObject.h"; sourceTree = "<group>"; };
 		D6BFEA941D644E2C007EC476 /* NSString+AssociateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AssociateObject.m"; sourceTree = "<group>"; };
+		D6BFEA9C1D645B91007EC476 /* SwizzlingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwizzlingObject.h; sourceTree = "<group>"; };
+		D6BFEA9D1D645B91007EC476 /* SwizzlingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwizzlingObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				D6BFEA751D644D35007EC476 /* ViewController.m */,
 				D6BFEA931D644E2C007EC476 /* NSString+AssociateObject.h */,
 				D6BFEA941D644E2C007EC476 /* NSString+AssociateObject.m */,
+				D6BFEA9C1D645B91007EC476 /* SwizzlingObject.h */,
+				D6BFEA9D1D645B91007EC476 /* SwizzlingObject.m */,
 				D6BFEA771D644D35007EC476 /* Main.storyboard */,
 				D6BFEA7A1D644D35007EC476 /* Assets.xcassets */,
 				D6BFEA7C1D644D35007EC476 /* LaunchScreen.storyboard */,
@@ -219,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6BFEA761D644D35007EC476 /* ViewController.m in Sources */,
+				D6BFEA9E1D645B91007EC476 /* SwizzlingObject.m in Sources */,
 				D6BFEA731D644D35007EC476 /* AppDelegate.m in Sources */,
 				D6BFEA701D644D35007EC476 /* main.m in Sources */,
 				D6BFEA951D644E2C007EC476 /* NSString+AssociateObject.m in Sources */,

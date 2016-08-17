@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NSString+AssociateObject.h"
+#import "SwizzlingObject.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,11 @@
     NSString *st = @"xx";
     st.stringNumber = @(3);
     NSLog(@"%@",st.stringNumber);
+    
+    // Method Swizzling
+    SwizzlingObject *obj = [[SwizzlingObject alloc]init];
+    [obj print1];
+    [obj print2];
 }
 
 @end
