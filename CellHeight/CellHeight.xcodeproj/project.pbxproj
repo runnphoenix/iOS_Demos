@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D64A15CB1D76D5D700108A5D /* HeightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D64A15C91D76D5D700108A5D /* HeightTableViewCell.m */; };
+		D64A15CC1D76D5D700108A5D /* HeightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D64A15CA1D76D5D700108A5D /* HeightTableViewCell.xib */; };
 		D655532A1D758090002EE25B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65553291D758090002EE25B /* main.m */; };
 		D655532D1D758090002EE25B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D655532C1D758090002EE25B /* AppDelegate.m */; };
 		D65553301D758090002EE25B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D655532F1D758090002EE25B /* ViewController.m */; };
@@ -27,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D64A15C81D76D5D700108A5D /* HeightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightTableViewCell.h; sourceTree = "<group>"; };
+		D64A15C91D76D5D700108A5D /* HeightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightTableViewCell.m; sourceTree = "<group>"; };
+		D64A15CA1D76D5D700108A5D /* HeightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeightTableViewCell.xib; sourceTree = "<group>"; };
 		D65553251D758090002EE25B /* CellHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65553291D758090002EE25B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D655532B1D758090002EE25B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +90,9 @@
 				D655532C1D758090002EE25B /* AppDelegate.m */,
 				D655532E1D758090002EE25B /* ViewController.h */,
 				D655532F1D758090002EE25B /* ViewController.m */,
+				D64A15C81D76D5D700108A5D /* HeightTableViewCell.h */,
+				D64A15C91D76D5D700108A5D /* HeightTableViewCell.m */,
+				D64A15CA1D76D5D700108A5D /* HeightTableViewCell.xib */,
 				D65553311D758090002EE25B /* Main.storyboard */,
 				D65553341D758090002EE25B /* Assets.xcassets */,
 				D65553361D758090002EE25B /* LaunchScreen.storyboard */,
@@ -193,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64A15CC1D76D5D700108A5D /* HeightTableViewCell.xib in Resources */,
 				D65553381D758090002EE25B /* LaunchScreen.storyboard in Resources */,
 				D65553351D758090002EE25B /* Assets.xcassets in Resources */,
 				D65553331D758090002EE25B /* Main.storyboard in Resources */,
@@ -213,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64A15CB1D76D5D700108A5D /* HeightTableViewCell.m in Sources */,
 				D65553301D758090002EE25B /* ViewController.m in Sources */,
 				D655532D1D758090002EE25B /* AppDelegate.m in Sources */,
 				D655532A1D758090002EE25B /* main.m in Sources */,
@@ -404,6 +414,7 @@
 				D65553491D758090002EE25B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D655534A1D758090002EE25B /* Build configuration list for PBXNativeTarget "CellHeightTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +423,7 @@
 				D655534C1D758090002EE25B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

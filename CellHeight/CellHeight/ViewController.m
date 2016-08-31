@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HeightTableViewCell.h"
 
 @interface ViewController  ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,7 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _contents = @[@"12345", @"12345678901234567890123456789012345678901234567890", @"12345", @"12345678901234567890123456789012345678901234567890", @"12345678901234567890123456789012345678901234567890", @"12345", @"12345678901234567890123456789012345678901234567890", @"12345", @"12345678901234567890123456789012345678901234567890", @"12345", @"12345678901234567890123456789012345678901234567890", @"12345678901234567890123456789012345678901234567890", @"12345", @"12345678901234567890123456789012345678901234567890"];
+    _contents = @[@"12345", @"1234567890",
+                  @"12345", @"12345678901234567890",
+                  @"12345", @"123456789012345678901234567890",
+                  @"12345", @"12345678901234567890123456789012345678901234567890"];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -31,18 +35,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [_contents[indexPath.row] sizeWithAttributes:nil].height;
-    ;
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
+    CGRect rect = [_contents[indexPath.row] boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:nil];
+    NSLog(@"%f",ceil(rect.size.height));
+    return ceil(rect.size.height) + 15;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellID = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    HeightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"HeightTableViewCell" owner:self options:nil] lastObject];
     }
-    cell.textLabel.text = _contents[indexPath.row];
-    cell.textLabel.numberOfLines = MAXFLOAT;
+    cell.heightLabel.text = _contents[indexPath.row];
+    cell.heightLabel.numberOfLines = MAXFLOAT;
     
     return cell;
 }
