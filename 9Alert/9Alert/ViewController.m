@@ -11,21 +11,22 @@
 #import "LocationManager.h"
 #import <MapKit/MapKit.h>
 
-@interface ViewController () <CLLocationManagerDelegate>
+@interface ViewController () <CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *currentSSIDLabel;
 @property (weak, nonatomic) IBOutlet UILabel *referenceSSIDLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
 @end
 
 @implementation ViewController {
-    LocationManager *_locationManager;
-    NSMutableArray *_annotations;
-    unsigned _maxWorkHours;
+    LocationManager *_locationManager;  // 位置管理
+    NSMutableArray *_annotations;       // 位置标记
     
-    NSDate *_dailyStartDate;
-    NSDate *_dailyEndDate;
+    NSDate *_StartDate;            // 工作开始时间
+    NSDate *_EndDate;              // 工作结束时间
     
-    BOOL _duringWork;
+    BOOL _duringWork;   // 是否处在工作状态下
+    NSArray *_workHours;
 }
 
 - (void)viewDidLoad {
@@ -39,12 +40,18 @@
     _annotations = [NSMutableArray array];
     
     _duringWork = NO;
+    
+    self.timePicker.dataSource = self;
+    self.timePicker.delegate = self;
+    
+    _workHours = @[@"7", @"8", @"9", @"10", @"11"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self refreshWiFiLabels];
+    [self setPickerViewDisplay];
 }
 
 // 刷新WiFi名称显示
@@ -83,10 +90,12 @@
         _duringWork = YES;
         
         UILocalNotification *notification = [[UILocalNotification alloc]init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60];
+        unsigned workLength = [[[NSUserDefaults standardUserDefaults]valueForKey:@"WorkLength"] intValue];
+        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:workLength * 3600];
         notification.timeZone = [NSTimeZone defaultTimeZone];
         notification.alertTitle = @"下班了，下班了";
         notification.alertBody = @"美好的夜生活开始了";
+        notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }
@@ -104,6 +113,32 @@
     }else{
         //TODO: 给出未连接WiFi的警告
     }
+}
+
+#pragma mark - Picker
+#pragma mark DataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return _workHours.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return _workHours[row];
+}
+
+#pragma mark Delegate
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    [[NSUserDefaults standardUserDefaults] setValue:_workHours[row] forKey:@"WorkLength"];
+}
+
+#pragma mark - Set PickerView Display
+- (void)setPickerViewDisplay {
+    unsigned workLength = [[[NSUserDefaults standardUserDefaults]valueForKey:@"WorkLength"]intValue];
+    unsigned row = workLength - [_workHours[0]intValue];
+    [self.timePicker selectRow:row inComponent:0 animated:YES];
 }
 
 @end

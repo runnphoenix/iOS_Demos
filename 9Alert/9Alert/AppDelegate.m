@@ -22,6 +22,12 @@
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstLaunch"]) {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+        [[NSUserDefaults standardUserDefaults]setValue:@"9" forKey:@"WorkLength"];
+    }
+    
+    
     return YES;
 }
 
@@ -48,7 +54,18 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    
+    if (application.applicationState == UIApplicationStateActive) {
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Time to Leave."
+                                                                            message:@"Time to see Mom."
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * _Nonnull action) {
+                                                           [controller dismissViewControllerAnimated:YES completion:^{}];
+                                                       }];
+        [controller addAction:action];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
+    }
 }
 
 @end
