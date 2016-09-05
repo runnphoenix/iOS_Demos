@@ -46,6 +46,8 @@
 
 #pragma mark - Core Data stack
 
+// NSManagedObjectModel -> NSPersistentStoreCoordinator -> NSManagedObjectContext
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;

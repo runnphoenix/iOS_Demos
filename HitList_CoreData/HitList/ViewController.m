@@ -14,8 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
-@implementation ViewController
-{
+@implementation ViewController {
     NSMutableArray *people;
 }
 
@@ -27,9 +26,9 @@
     people = [NSMutableArray array];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     AppDelegate *delegate  =[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context = [delegate managedObjectContext];
     
@@ -43,10 +42,6 @@
     }else{
         NSLog(@"could not fetch, error is %@",error);
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (IBAction)addName:(UIBarButtonItem *)sender
@@ -65,19 +60,16 @@
                                                             
                                                          }];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        
-    }];
+           }];
     
     [alert addAction:saveAction];
     [alert addAction:cancleAction];
     
     [self presentViewController:alert animated:YES completion:^{
-       
-    }];
+                                                    }];
 }
 
-- (void)saveName:(NSString*)name
-{
+- (void)saveName:(NSString*)name {
     AppDelegate *dele = (AppDelegate*)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context= [dele managedObjectContext];
     
@@ -94,13 +86,12 @@
     [people addObject:person];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+#pragma mark - TableView DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return people.count;
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     NSManagedObject *person = (NSManagedObject*)people[indexPath.row];
     cell.textLabel.text = [person valueForKey:@"name"];
